@@ -1,0 +1,482 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.dark-theme {
+    background-color: #000;
+    color: #fff;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #800020, #600018);
+    padding: 20px 30px;
+    font-size: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav a:hover {
+    background-color: rgba(128, 0, 32, 0.2);
+}
+
+.nav a.active {
+    background-color: #800020;
+    color: #fff;
+}
+
+.theme-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    background: linear-gradient(45deg, #800020, #600018);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    font-size: 16px;
+    z-index: 1000;
+}
+
+.like-btn {
+    padding: 15px 25px;
+    background: linear-gradient(45deg, #800020, #600018);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.info-box {
+    background: rgba(128, 0, 32, 0.9);
+    color: white;
+    padding: 15px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-radius: 5px;
+    display: none;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.expanded {
+    transform: scale(1.5);
+    transition: transform 0.5s ease;
+    z-index: 10;
+}
+
+form input, form textarea {
+    padding: 15px;
+    border: 2px solid #bdc3c7;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #800020;
+    outline: none;
+}
+
+form button {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #800020, #600018);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: linear-gradient(45deg, #600018, #400010);
+}
+
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.contact-box {
+    background:#fff; 
+    padding:20px; 
+    border-radius:8px; 
+    box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+
+.dark-theme .contact-box {
+    background:#333; 
+    color:#fff;
+}
+
+.contact-form {
+    margin-top:40px; 
+    background: linear-gradient(135deg, #f0f0f0, #d0d0d0); 
+    padding:30px; 
+    border-radius:15px; 
+    box-shadow:0 8px 25px rgba(0,0,0,0.1);
+}
+
+.dark-theme .contact-form {
+    background: linear-gradient(135deg, #333, #555);
+}
+
+.page-header {
+    text-align:center; 
+    padding:70px 20px; 
+    background:linear-gradient(135deg,#f0f0f0,#d0d0d0); 
+    color: #333;
+}
+
+.dark-theme .page-header {
+    color: #fff;
+}
+
+.about-hero {
+    color: #333;
+}
+
+.dark-theme .about-hero {
+    color: #fff;
+}
+
+.about-footer-text {
+    color: #2c3e50;
+}
+
+.dark-theme .about-footer-text {
+    color: #fff;
+}
+
+.activity-card {
+    background: linear-gradient(135deg, #f0f0f0, #d0d0d0);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.activity-card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.activity-card p {
+    color: #666;
+}
+
+.activity-card p:last-child {
+    font-size: 14px;
+}
+
+.dark-theme .activity-card {
+    background: linear-gradient(135deg, #333, #555);
+}
+
+.dark-theme .activity-card h3 {
+    color: #fff;
+}
+
+.dark-theme .activity-card p {
+    color: #ccc;
+}
+
+.gastronomy-section {
+    background: #ffffff;
+    border-top: 1px solid #e0e6ee;
+    border-bottom: 1px solid #e0e6ee;
+}
+
+.dark-theme .gastronomy-section {
+    background: #333;
+}
+
+.location-section {
+    background: #0a7abf0d;
+    border-top: 1px solid #d1dbe5;
+}
+
+.dark-theme .location-section {
+    background: #222;
+}
+
+.plan-card {
+    flex: 1 1 260px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+}
+
+.dark-theme .plan-card {
+    background: #333;
+    color: #fff;
+}
+
+.contact-header {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.contact-header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.contact-header p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.dark-theme .contact-header h1,
+.dark-theme .contact-header p {
+    color: #fff;
+}
+
+.contact-form h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #800020;
+}
+
+.contact-form form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-info {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.form-info h3 {
+    margin-bottom: 15px;
+    color: #800020;
+}
+
+.form-info ul {
+    margin: 0;
+    padding-left: 20px;
+    line-height: 1.8;
+    text-align: left;
+    display: inline-block;
+}
+
+.dark-theme .contact-form h2,
+.dark-theme .form-info h3 {
+    color: #fff;
+}
+.about-hero {
+    background-image: url('https://via.placeholder.com/1920x1080/444444/AAAAAA?text=Mountain+Background');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #333;
+}
+
+.about-hero h1 {
+    font-size: 56px;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.about-hero p {
+    font-size: 18px;
+    max-width: 900px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 960px;
+    width: 100%;
+}
+
+.about-info-box {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 25px;
+    border: 9px solid #800020;
+    color: #333;
+    text-align: left;
+}
+
+.about-info-box.gray-border {
+    border-color: #808080;
+}
+
+.about-info-box h3 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.about-info-box p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.dark-theme .about-hero {
+    color: #fff;
+}
+
+.dark-theme .about-info-box {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+}
+
+.page-header h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.page-header p {
+    font-size: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.like-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 2000px;
+    margin: auto;
+    gap: 30px;
+    padding-bottom: 40px;
+}
+
+.image-card {
+    width: 300px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.image-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+    padding: 20px;
+    color: white;
+}
+
+.image-overlay h3 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.image-overlay p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.dark-theme .page-header h2,
+.dark-theme .page-header p {
+    color: #fff;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}

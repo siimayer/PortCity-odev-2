@@ -4,51 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProCity | PortCity Marina</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body style="margin: 0; font-family: Arial, sans-serif; background-color: #f9f9f9; color: #333;">
+<body>
 
     <!-- Navigation Bar -->
-  <div style="display: flex; justify-content: center; gap: 20px; background: #ffffff; padding: 15px 10px; font-size: 14px; border-bottom: 1px solid #ddd;">
+  <div class="nav">
     <span style="font-weight: bold;">ProCity</span>
-    <a href="index.html" style="color: #333; text-decoration: none;">Ana Sayfa</a>
-    <a href="about.html" style="color: #333; text-decoration: none;">Hakkında</a>
-    <a href="contact.html" style="color: #333; text-decoration: none;">İletişim</a>
-    <a href="services.html" style="color: #333; text-decoration: none ;"> Aktiviteler & Mekanlar</a>
+    <a href="index.html">Ana Sayfa</a>
+    <a href="about.html">Hakkında</a>
+    <a href="contact.html">İletişim</a>
+    <a href="services.html"> Aktiviteler & Mekanlar</a>
     </div>
 
-    <div style="text-align: center; padding: 50px 30px;">
-        <h2 style="color: #333; font-size: 34px; margin-bottom: 15px;">PortCity Marina'ya Hoş Geldiniz</h2>
-        <p style="font-size: 16px; max-width: 640px; margin: 0 auto; line-height: 1.6;">
+    <button id="theme-btn">🎨 Tema Değiştir</button>
+
+    <div class="page-header">
+        <h2>PortCity Marina'ya Hoş Geldiniz</h2>
+        <p>
             ProCity Belediyesi, kentin denizle buluştuğu bu yeni turistik marina alanıyla yerel ekonomiyi canlandırıyor.
             PortCity; çağdaş mimarisi, sürdürülebilir altyapısı ve yıl boyu süren etkinlikleriyle ziyaretçilerini bekliyor.
         </p>
     </div>
 
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; max-width: 2000px; margin: auto; gap: 30px; padding-bottom: 40px;">
-        <div style="width: 300px; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
-            <img src="https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=1200&q=80" alt="Kıyı promenadı" style="width: 100%; height: 200px; object-fit: cover; display: block;">
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); padding: 20px; color: white;">
-                <h3 style="margin-top: 0; font-size: 20px;">Deniz Kenarı Promenadı</h3>
-                <p style="font-size: 14px; line-height: 1.5;">2 km'lik yürüyüş yolu, gün batımı terasları ve açık hava sanat rotasıyla yerel yaşamı sahile taşıyor.</p>
+    <div class="like-container">
+        <button id="like-btn" class="like-btn">👍 Beğen</button>
+        <span id="like-count" style="font-size: 18px; margin-left: 15px; font-weight: bold;">0</span>
+    </div>
+
+    <div class="image-grid">
+        <div class="image-card">
+            <img src="https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=1200&q=80" alt="Kıyı promenadı">
+            <div class="image-overlay">
+                <h3>Deniz Kenarı Promenadı</h3>
+                <p>2 km'lik yürüyüş yolu, gün batımı terasları ve açık hava sanat rotasıyla yerel yaşamı sahile taşıyor.</p>
             </div>
         </div>
 
-        <div style="width: 300px; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
-            <img src="https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?auto=format&fit=crop&w=1200&q=80" alt="Gastronomi meydanı" style="width: 100%; height: 200px; object-fit: cover; display: block;">
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); padding: 20px; color: white;">
-                <h3 style="margin-top: 0; font-size: 20px;">Gastronomi Meydanı</h3>
-                <p style="font-size: 14px; line-height: 1.5;">Yerel şefler, balıkçı tezgahları ve pop-up kafeler PortCity'nin tatlarını öne çıkarıyor.</p>
+        <div class="image-card">
+            <img src="https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?auto=format&fit=crop&w=1200&q=80" alt="Gastronomi meydanı">
+            <div class="image-overlay">
+                <h3>Gastronomi Meydanı</h3>
+                <p>Yerel şefler, balıkçı tezgahları ve pop-up kafeler PortCity'nin tatlarını öne çıkarıyor.</p>
             </div>
         </div>
 
-        <div style="width: 300px; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
-            <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80" alt="Akıllı marina" style="width: 100%; height: 200px; object-fit: cover; display: block;">
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); padding: 20px; color: white;">
-                <h3 style="margin-top: 0; font-size: 20px;">Akıllı Marina Hizmetleri</h3>
-                <p style="font-size: 14px; line-height: 1.5;">Elektrikli tekne şarj üniteleri, rezervasyon uygulaması ve 7/24 güvenlik ile konuk ağırlama deneyimi yenileniyor.</p>
+        <div class="image-card">
+            <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80" alt="Akıllı marina">
+            <div class="image-overlay">
+                <h3>Akıllı Marina Hizmetleri</h3>
+                <p>Elektrikli tekne şarj üniteleri, rezervasyon uygulaması ve 7/24 güvenlik ile konuk ağırlama deneyimi yenileniyor.</p>
             </div>
         </div>
     </div>
+
+    <!-- Modal for image zoom -->
+    <div id="image-modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
     <div style="text-align: center; margin-top: 20px; font-size: 14px;">
         <p>Görseller Unsplash üzerinden temsili olarak kullanılmıştır.</p>
@@ -59,7 +77,7 @@
 <br>
 <br>
     <!-- Footer Bölümü -->
-<div style="background-color:#2f2f2f; color:#fff; padding:50px 20px; text-align:center; font-family:Arial, sans-serif;">
+<div class="footer">
 
   <!-- Açıklama Metni -->
   <p style="margin:0 0 10px; font-size:14px; line-height:1.5;">

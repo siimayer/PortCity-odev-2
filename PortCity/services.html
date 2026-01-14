@@ -4,19 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProCity | PortCity Aktiviteler & Mekanlar</title>
-</head>
-<body style="margin:0; font-family:'Arial', sans-serif; background-color:#f6f8fb; color:#1f2b37;">
+    <link rel="stylesheet" href="style.css">
 
-  <!-- Navigation Bar -->
-  <div style="display: flex; justify-content: center; gap: 20px; background: #ffffff; padding: 15px 10px; font-size: 14px; border-bottom: 1px solid #ddd;">
+    <style>
+        /* --- ÖNCEKİ KODDAN KALAN CSS (Hover Efekti İçin) --- */
+        .activity-card p {
+            display: none; /* Paragrafları başlangıçta gizle */
+        }
+        .activity-card {
+            cursor: pointer; /* Üzerine gelince el işareti çıksın */
+        }
+
+        /* --- YENİ EKLENEN CSS (Fotoğraf Büyütme Efekti İçin) --- */
+
+        /* 1. Gastronomi bölümündeki resimlerin tıklanabilir olduğunu göster */
+        .gastronomy-section img {
+            cursor: zoom-in; /* Büyüteç imleci */
+            transition: transform 0.2s ease; /* Hafif bir efekt */
+        }
+        
+        .gastronomy-section img:hover {
+             transform: scale(1.02); /* Üzerine gelince çok hafif büyüsün */
+        }
+
+        /* 2. Büyütülmüş görüntü katmanı (Overlay) */
+        #image-overlay {
+            position: fixed; /* Sayfada sabit dur */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); /* Yarı saydam siyah arka plan */
+            display: none; /* Başlangıçta gizli */
+            justify-content: center; /* Yatay ortalama */
+            align-items: center; /* Dikey ortalama */
+            z-index: 9999; /* En üstte görünsün */
+            cursor: zoom-out; /* Kapatmak için tıklanacağını göster */
+            opacity: 0;
+            transition: opacity 0.3s ease; /* Açılıp kapanırken yumuşak geçiş */
+        }
+
+        /* Javascript ile 'active' sınıfı eklendiğinde görünür yap */
+        #image-overlay.active {
+            display: flex; /* Flexbox ile ortalamayı etkinleştir */
+            opacity: 1;
+        }
+
+        /* Overlay içindeki büyük resim */
+        #overlay-img {
+            max-width: 90%; /* Ekranın %90'ından geniş olmasın */
+            max-height: 90%; /* Ekranın %90'ından yüksek olmasın */
+            object-fit: contain; /* Oranını bozmadan sığdır */
+            box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Şık bir gölge ekle */
+        }
+    </style>
+</head>
+<body>
+
+  <div class="nav">
     <span style="font-weight: bold;">ProCity</span>
-    <a href="index.html" style="color: #333; text-decoration: none;">Ana Sayfa</a>
-    <a href="about.html" style="color: #333; text-decoration: none;">Hakkında</a>
-    <a href="contact.html" style="color: #333; text-decoration: none;">İletişim</a>
-    <a href="services.html" style="color: #333; text-decoration: none ;"> Aktiviteler & Mekanlar</a>
+    <a href="index.html">Ana Sayfa</a>
+    <a href="about.html">Hakkında</a>
+    <a href="contact.html">İletişim</a>
+    <a href="services.html"> Aktiviteler & Mekanlar</a>
     </div>
 
-  <header style="text-align:center; padding:70px 20px; background:linear-gradient(135deg,#0a7abf,#53c2d1); color:#fff;">
+    <button id="theme-btn">🎨 Tema Değiştir</button>
+
+  <header class="page-header">
       <h1 style="margin-bottom:15px; font-size:40px;">PortCity'de Keşfet</h1>
       <p style="max-width:680px; margin:0 auto; font-size:18px; line-height:1.6;">
         ProCity Belediyesi'nin hayata geçirdiği PortCity Marina, denizle iç içe günler yaşamak isteyenler için
@@ -25,61 +80,67 @@
   </header>
 
   <section style="max-width:1100px; margin:0 auto; padding:50px 20px;">
-    <h2 style="font-size:28px; margin-bottom:20px;">Günün Her Saati Hareket</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px;">
-      <article style="background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 18px rgba(0,0,0,0.06);">
-        <h3 style="margin-top:0;">Yelken & Su Sporları Merkezi</h3>
+    <h2 style="font-size:32px; margin-bottom:30px; text-align: center; color: #3498db;">Günün Her Saati Hareket</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px;">
+      <article class="activity-card">
+        <h3>Yelken & Su Sporları Merkezi</h3>
         <p>Profesyonel eğitmenlerle yelken, kano ve paddle board dersleri ile marinanın sakin koylarını keşfedin.</p>
-        <p style="font-size:13px; color:#5a6a78;">Her gün 09:00 - 19:00 • A İskele</p>
+        <p>Her gün 09:00 - 19:00 • A İskele</p>
       </article>
-      <article style="background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 18px rgba(0,0,0,0.06);">
-        <h3 style="margin-top:0;">Deniz Kütüphanesi</h3>
+      <article class="activity-card">
+        <h3>Deniz Kütüphanesi</h3>
         <p>Mimarisiyle dikkat çeken bu mekan, şehir sakinlerine deniz kültürü arşivi ve sessiz çalışma alanı sağlıyor.</p>
-        <p style="font-size:13px; color:#5a6a78;">Salı-Pazar 10:00 - 22:00 • Promenade 3</p>
+        <p>Salı-Pazar 10:00 - 22:00 • Promenade 3</p>
       </article>
-      <article style="background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 18px rgba(0,0,0,0.06);">
-        <h3 style="margin-top:0;">Açık Hava Sahnesi</h3>
+      <article class="activity-card">
+        <h3>Açık Hava Sahnesi</h3>
         <p>Yaz boyunca caz konserleri, tiyatro ve film gösterimleri için 1.500 kişilik kalıcı sahne.</p>
-        <p style="font-size:13px; color:#5a6a78;">Etkinlik takvimi haftalık güncellenir.</p>
+        <p>Etkinlik takvimi haftalık güncellenir.</p>
       </article>
-      <article style="background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 18px rgba(0,0,0,0.06);">
-        <h3 style="margin-top:0;">Çocuk Keşif Atölyesi</h3>
+      <article class="activity-card">
+        <h3>Çocuk Keşif Atölyesi</h3>
         <p>5-12 yaş grubu için deniz biyolojisi, geri dönüşüm ve robotik temalı deneyim alanları.</p>
-        <p style="font-size:13px; color:#5a6a78;">Hafta sonu seansları • Ön kayıt gerekli</p>
+        <p>Hafta sonu seansları • Ön kayıt gerekli</p>
       </article>
     </div>
   </section>
 
-  <section style="background:#ffffff; border-top:1px solid #e0e6ee; border-bottom:1px solid #e0e6ee;">
+  <div id="activities"></div>
+
+  <section class="gastronomy-section">
     <div style="max-width:1100px; margin:0 auto; padding:50px 20px;">
         <h2 style="font-size:28px; margin-bottom:20px;">Gastronomi & Mekan Haritası</h2>
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px;">
+            
             <div style="position:relative; border-radius:12px; overflow:hidden; min-height:220px;">
-                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Sahil Lokantası" style="width:100%; height:100%; object-fit:cover;">
-                <div style="position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,0.15),rgba(0,0,0,0.65)); color:#fff; padding:20px; display:flex; flex-direction:column; justify-content:flex-end;">
+                <img class="enlargeable-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Sahil Lokantası" style="width:100%; height:100%; object-fit:cover;">
+                <div style="position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,0.15),rgba(0,0,0,0.65)); color:#fff; padding:20px; display:flex; flex-direction:column; justify-content:flex-end; pointer-events: none;">
                     <h3 style="margin:0;">Sahil Lokantası</h3>
                     <p style="margin:5px 0 0;">Yerel balıkçılarla ortak menü, günlük olarak değişen mevsim ürünleri.</p>
                 </div>
             </div>
+
             <div style="position:relative; border-radius:12px; overflow:hidden; min-height:220px;">
-                <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1200&q=80" alt="Marina Pazarı" style="width:100%; height:100%; object-fit:cover;">
-                <div style="position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,0.15),rgba(0,0,0,0.65)); color:#fff; padding:20px; display:flex; flex-direction:column; justify-content:flex-end;">
+                 <img class="enlargeable-img" src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1200&q=80" alt="Marina Pazarı" style="width:100%; height:100%; object-fit:cover;">
+                <div style="position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,0.15),rgba(0,0,0,0.65)); color:#fff; padding:20px; display:flex; flex-direction:column; justify-content:flex-end; pointer-events: none;">
                     <h3 style="margin:0;">Marina Pazarı</h3>
                     <p style="margin:5px 0 0;">Cumartesi kurulan üretici pazarı, tasarım stantları ve canlı müzik.</p>
                 </div>
             </div>
+
             <div style="position:relative; border-radius:12px; overflow:hidden; min-height:220px;">
-                <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1200&q=80" alt="Atölye Stüdyoları" style="width:100%; height:100%; object-fit:cover;">
-                <div style="position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,0.15),rgba(0,0,0,0.65)); color:#fff; padding:20px; display:flex; flex-direction:column; justify-content:flex-end;">
+                 <img class="enlargeable-img" src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1200&q=80" alt="Atölye Stüdyoları" style="width:100%; height:100%; object-fit:cover;">
+                <div style="position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,0.15),rgba(0,0,0,0.65)); color:#fff; padding:20px; display:flex; flex-direction:column; justify-content:flex-end; pointer-events: none;">
                     <h3 style="margin:0;">Atölye Stüdyoları</h3>
                     <p style="margin:5px 0 0;">Seramik, tekstil ve dijital sanat üretim alanları, residency programları.</p>
                 </div>
             </div>
+
         </div>
     </div>
   </section>
 
-  <section style="background:#0a7abf0d; border-top:1px solid #d1dbe5;">
+  <section class="location-section">
     <div style="max-width:1100px; margin:0 auto; padding:50px 20px;">
         <h2 style="font-size:28px; margin-bottom:15px;">PortCity Konum & Sanal Tur</h2>
         <p style="max-width:740px; line-height:1.6; margin-bottom:25px;">
@@ -102,17 +163,17 @@
   <section style="max-width:1100px; margin:0 auto; padding:50px 20px;">
     <h2 style="font-size:28px; margin-bottom:20px;">Planınızı Oluşturun</h2>
     <div style="display:flex; flex-wrap:wrap; gap:24px;">
-        <div style="flex:1 1 260px; background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 18px rgba(0,0,0,0.06);">
+        <div class="plan-card">
             <h3 style="margin-top:0;">Etkinlik Takvimi</h3>
             <p>Haftalık program e-posta bülteni için kayıt olun; konser, spor ve atölye duyurularını ilk siz alın.</p>
             <a href="contact.html" style="color:#0a7abf; font-weight:bold;">Takvime kayıt →</a>
         </div>
-        <div style="flex:1 1 260px; background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 18px rgba(0,0,0,0.06);">
+        <div class="plan-card">
             <h3 style="margin-top:0;">Rezervasyon Masası</h3>
             <p>Yelken dersleri, grup turları veya özel etkinlik kiralamaları için belediye ekibi destek sağlar.</p>
             <a href="contact.html" style="color:#0a7abf; font-weight:bold;">Rezervasyon talebi →</a>
         </div>
-        <div style="flex:1 1 260px; background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 18px rgba(0,0,0,0.06);">
+        <div class="plan-card">
             <h3 style="margin-top:0;">Dijital Rehber</h3>
             <p>QR kodlu yönlendirmelerle PortCity içerisinde canlı doluluk ve etkinlik bildirimleri alın.</p>
             <p style="font-size:13px; color:#5a6a78;">Yakında App Store ve Google Play'de.</p>
@@ -120,21 +181,19 @@
     </div>
   </section>
 
-   <!-- Footer Bölümü -->
-<div style="background-color:#2f2f2f; color:#fff; padding:50px 20px; text-align:center; font-family:Arial, sans-serif;">
-
-    <!-- Açıklama Metni -->
+<div class="footer">
     <p style="margin:0 0 10px; font-size:14px; line-height:1.5;">
       ProCity Belediyesi, PortCity Marina ile kentin deniz turizmini geleceğe taşıyor.
     </p>
-  
-    <!-- Linkli Alt Metin -->
     <p style="margin:0; font-size:12px; line-height:1.4;">
       Daha fazla bilgi için <a href="contact.html" style="color:#fff; text-decoration:underline; cursor:pointer;">iletişime geçin</a>.
     </p>
+</div>
   
-  
+    <div id="image-overlay">
+        <img id="overlay-img" src="" alt="Büyütülmüş Görünüm">
+    </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
-
